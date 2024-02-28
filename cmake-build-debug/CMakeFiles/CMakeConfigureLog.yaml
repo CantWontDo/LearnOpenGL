@@ -1,0 +1,257 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33133 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCCompilerId.c
+      Microsoft (R) Incremental Linker Version 14.38.33133.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCCompilerId.exe 
+      CMakeCCompilerId.obj 
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/3.27.8/CompilerIdC/CMakeCCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:1155 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting C compiler /showIncludes prefix:
+        main.c
+        Note: including file: C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/bin/Hostx64/x64/cl.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Microsoft (R) C/C++ Optimizing Compiler Version 19.38.33133 for x64
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      CMakeCXXCompilerId.cpp
+      Microsoft (R) Incremental Linker Version 14.38.33133.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+      
+      /out:CMakeCXXCompilerId.exe 
+      CMakeCXXCompilerId.obj 
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/3.27.8/CompilerIdCXX/CMakeCXXCompilerId.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:1155 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:221 (CMAKE_DETERMINE_MSVC_SHOWINCLUDES_PREFIX)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Detecting CXX compiler /showIncludes prefix:
+        main.c
+        Note: including file: C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\ShowIncludes\\foo.h
+        
+      Found prefix "Note: including file: "
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mkzuox"
+      binary: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mkzuox"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-mkzuox'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.3/bin/ninja/win/x64/ninja.exe" -v cmTC_ebe56
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_ebe56.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_ebe56.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_ebe56.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_ebe56.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_ebe56.exe /implib:cmTC_ebe56.lib /pdb:cmTC_ebe56.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-w756h3"
+      binary: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-w756h3"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-w756h3'
+        
+        Run Build Command(s): "C:/Program Files/JetBrains/CLion 2023.3.3/bin/ninja/win/x64/ninja.exe" -v cmTC_30968
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP   /DWIN32 /D_WINDOWS /EHsc  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_30968.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_30968.dir\\ /FS -c "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_30968.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_30968.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_30968.exe /implib:cmTC_30968.lib /pdb:cmTC_30968.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "dependencies/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-42ivnp"
+      binary: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-42ivnp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/dependencies/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-42ivnp'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe -v cmTC_68a10
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_68a10.dir\\src.c.obj /FdCMakeFiles\\cmTC_68a10.dir\\ /FS -c C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-42ivnp\\src.c
+        \x1b[31mFAILED: \x1b[0mCMakeFiles/cmTC_68a10.dir/src.c.obj 
+        C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_68a10.dir\\src.c.obj /FdCMakeFiles\\cmTC_68a10.dir\\ /FS -c C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-42ivnp\\src.c
+        C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-42ivnp\\src.c(1): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "dependencies/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tx6f6r"
+      binary: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tx6f6r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/dependencies/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-tx6f6r'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe -v cmTC_d1755
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_d1755.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_d1755.dir\\ /FS -c C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-tx6f6r\\CheckFunctionExists.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_d1755.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_d1755.dir\\CheckFunctionExists.c.obj  /out:cmTC_d1755.exe /implib:cmTC_d1755.lib /pdb:cmTC_d1755.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        \x1b[31mFAILED: \x1b[0mcmTC_d1755.exe 
+        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_d1755.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_d1755.dir\\CheckFunctionExists.c.obj  /out:cmTC_d1755.exe /implib:cmTC_d1755.lib /pdb:cmTC_d1755.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_d1755.dir\\CheckFunctionExists.c.obj /out:cmTC_d1755.exe /implib:cmTC_d1755.lib /pdb:cmTC_d1755.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_d1755.dir/intermediate.manifest CMakeFiles\\cmTC_d1755.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib'
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.3.3/bin/cmake/win/x64/share/cmake-3.27/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "dependencies/glfw/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-edfgtw"
+      binary: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-edfgtw"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/dependencies/glfw/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/ninja/Desktop/Graphics/OpenGL/LearnOpenGL/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-edfgtw'
+        
+        Run Build Command(s): C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/ninja/win/x64/ninja.exe -v cmTC_5fe7a
+        [1/2] C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Ob0 /Od /RTC1 -MDd -Zi /showIncludes /FoCMakeFiles\\cmTC_5fe7a.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_5fe7a.dir\\ /FS -c C:\\Users\\ninja\\Desktop\\Graphics\\OpenGL\\LearnOpenGL\\cmake-build-debug\\CMakeFiles\\CMakeScratch\\TryCompile-edfgtw\\CheckFunctionExists.c
+        [2/2] cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_5fe7a.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5fe7a.dir\\CheckFunctionExists.c.obj  /out:cmTC_5fe7a.exe /implib:cmTC_5fe7a.lib /pdb:cmTC_5fe7a.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        \x1b[31mFAILED: \x1b[0mcmTC_5fe7a.exe 
+        cmd.exe /C "cd . && "C:\\Program Files\\JetBrains\\CLion 2023.3.3\\bin\\cmake\\win\\x64\\bin\\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\\cmTC_5fe7a.dir --rc=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\rc.exe --mt=C:\\PROGRA~2\\WI3CF2~1\\10\\bin\\100226~1.0\\x64\\mt.exe --manifests  -- C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5fe7a.dir\\CheckFunctionExists.c.obj  /out:cmTC_5fe7a.exe /implib:cmTC_5fe7a.lib /pdb:cmTC_5fe7a.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\MIB055~1\\2022\\COMMUN~1\\VC\\Tools\\MSVC\\1438~1.331\\bin\\Hostx64\\x64\\link.exe /nologo CMakeFiles\\cmTC_5fe7a.dir\\CheckFunctionExists.c.obj /out:cmTC_5fe7a.exe /implib:cmTC_5fe7a.lib /pdb:cmTC_5fe7a.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_5fe7a.dir/intermediate.manifest CMakeFiles\\cmTC_5fe7a.dir/manifest.res" failed (exit code 1104) with the following output:
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib'
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...
