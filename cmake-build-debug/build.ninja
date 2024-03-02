@@ -65,6 +65,14 @@ build CMakeFiles\LearnOpenGL.dir\glad.c.obj: C_COMPILER__LearnOpenGL_unscanned_D
   TARGET_COMPILE_PDB = CMakeFiles\LearnOpenGL.dir\
   TARGET_PDB = LearnOpenGL.pdb
 
+build CMakeFiles\LearnOpenGL.dir\Shader.cpp.obj: CXX_COMPILER__LearnOpenGL_unscanned_Debug C$:\Users\ninja\Desktop\Graphics\OpenGL\LearnOpenGL\Shader.cpp || cmake_object_order_depends_target_LearnOpenGL
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++17 -MDd -Zi
+  INCLUDES = -IC:\Users\ninja\Desktop\Graphics\OpenGL\LearnOpenGL\dependencies -IC:\Users\ninja\Desktop\Graphics\OpenGL\LearnOpenGL\dependencies\glfw\include
+  OBJECT_DIR = CMakeFiles\LearnOpenGL.dir
+  OBJECT_FILE_DIR = CMakeFiles\LearnOpenGL.dir
+  TARGET_COMPILE_PDB = CMakeFiles\LearnOpenGL.dir\
+  TARGET_PDB = LearnOpenGL.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LearnOpenGL
@@ -73,7 +81,7 @@ build CMakeFiles\LearnOpenGL.dir\glad.c.obj: C_COMPILER__LearnOpenGL_unscanned_D
 #############################################
 # Link the executable LearnOpenGL.exe
 
-build LearnOpenGL.exe: CXX_EXECUTABLE_LINKER__LearnOpenGL_Debug CMakeFiles\LearnOpenGL.dir\main.cpp.obj CMakeFiles\LearnOpenGL.dir\glad.c.obj | dependencies\glfw\src\glfw3.lib || dependencies\glfw\src\glfw3.lib
+build LearnOpenGL.exe: CXX_EXECUTABLE_LINKER__LearnOpenGL_Debug CMakeFiles\LearnOpenGL.dir\main.cpp.obj CMakeFiles\LearnOpenGL.dir\glad.c.obj CMakeFiles\LearnOpenGL.dir\Shader.cpp.obj | dependencies\glfw\src\glfw3.lib || dependencies\glfw\src\glfw3.lib
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = dependencies\glfw\src\glfw3.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

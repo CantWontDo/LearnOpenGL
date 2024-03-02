@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(LearnOpenGL
         main.cpp
-        glad.c)
+        glad.c
+        Shader.cpp
+        Shader.h)
 
 target_include_directories(LearnOpenGL PRIVATE dependencies)
 
