@@ -3,6 +3,7 @@
 //
 
 #include "Shader.h"
+#include "Texture2D.h"
 
 Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
@@ -111,11 +112,8 @@ void Shader::setInt(const std::string &name, int value) const
     glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
 
-void Shader::setTexture(const std::string &name, const Texture& value)
+void Shader::setTexture2D(const std::string &name, const GLuint texUnit, const Texture2D& value) const
 {
-    glActiveTexture(GL_TEXTURE0 + boundTextures);
-    glBindTexture(GL_TEXTURE_2D, value.ID);
-
-    setInt(name, boundTextures);
-    boundTextures++;
+    value.use(texUnit);
+    setInt(name, (int)texUnit);
 }

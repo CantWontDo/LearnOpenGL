@@ -2,9 +2,9 @@
 // Created by ninja on 3/2/2024.
 //
 
-#include "Texture.h"
+#include "Texture2D.h"
 
-Texture::Texture(const char *texturePath, bool generateMipMaps)
+Texture2D::Texture2D(const char *texturePath, bool generateMipMaps)
 {
     // creates an id for the texture object
     glGenTextures(1, &ID);
@@ -56,4 +56,23 @@ Texture::Texture(const char *texturePath, bool generateMipMaps)
     {
         std::cout << "texture " << ID << " did not load correctly!\n";
     }
+}
+
+Texture2D::Texture2D()
+{
+    ID = 0;
+    width = 0;
+    height = 0;
+    numChannels = 0;
+}
+
+void Texture2D::use() const
+{
+    glBindTexture(GL_TEXTURE_2D, ID);
+}
+
+void Texture2D::use(GLuint texUnit) const
+{
+    glActiveTexture(GL_TEXTURE0 + texUnit);
+    use();
 }

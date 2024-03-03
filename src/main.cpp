@@ -3,7 +3,7 @@
 #include "glfw/include/GLFW/glfw3.h"
 #include "helpers/Shader.h"
 #include "stb/stb_image.h"
-#include "helpers/Texture.h"
+#include "helpers/Texture2D.h"
 
 // called when application window is resized
 void framebufferSizeCallback(GLFWwindow* window, GLint width, GLint height);
@@ -158,8 +158,9 @@ int main()
     // flips all loaded images on the y-axis when loading
     stbi_set_flip_vertically_on_load(true);
 
-    Texture texture1 {"../textures/container.jpg"};
-    Texture texture2 {"../textures/awesomeface.png"};
+    Texture2D texture1 {"../textures/container.jpg"};
+    Texture2D texture2 {"../textures/spikes.png"};
+    Texture2D texture3 {"../textures/awesomeface.png"};
 
     while(!glfwWindowShouldClose(window))
     {
@@ -180,12 +181,12 @@ int main()
         basicShader.use();
 
         // tells frag shader which texture sampler goes with which texture unit
-        basicShader.setTexture("texture1", texture1);
-        basicShader.setTexture("texture2", texture2);
+        basicShader.setTexture2D("texture1", 0, texture1);
+        basicShader.setTexture2D("texture2", 1, texture2);
+        basicShader.setTexture2D("texture3", 2, texture3);
         // bind texture (maps to ourTexture uniform in frag shader)
         // Reuse VAO to prevent rebinding data to VBO
         glBindVertexArray(vao);
-
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         // draw triangle
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

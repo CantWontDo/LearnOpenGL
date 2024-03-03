@@ -9,8 +9,8 @@ add_executable(LearnOpenGL
         src/helpers/Shader.cpp
         src/helpers/Shader.h
         dependencies/stb/stb_image.cpp
-        src/helpers/Texture.cpp
-        src/helpers/Texture.h)
+        src/helpers/Texture2D.cpp
+        src/helpers/Texture2D.h)
 
 target_include_directories(LearnOpenGL PRIVATE dependencies)
 
