@@ -4,10 +4,13 @@ project(LearnOpenGL)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(LearnOpenGL
-        main.cpp
-        glad.c
-        Shader.cpp
-        Shader.h)
+        src/main.cpp
+        dependencies/glad/glad.c
+        src/helpers/Shader.cpp
+        src/helpers/Shader.h
+        dependencies/stb/stb_image.cpp
+        src/helpers/Texture.cpp
+        src/helpers/Texture.h)
 
 target_include_directories(LearnOpenGL PRIVATE dependencies)
 

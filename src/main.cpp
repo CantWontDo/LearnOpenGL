@@ -1,7 +1,9 @@
 #include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include "Shader.h"
+#include "glad/glad.h"
+#include "glfw/include/GLFW/glfw3.h"
+#include "helpers/Shader.h"
+#include "stb/stb_image.h"
+#include "helpers/Texture.h"
 
 // called when application window is resized
 void framebufferSizeCallback(GLFWwindow* window, GLint width, GLint height);
@@ -51,12 +53,18 @@ int main()
     // *** Initialization of VAO starts here ***
     // vertices of triangle, each vertex has 3 values (x, y, z). z is zero here to make it look 2d
     // these are unique vertices
-    GLfloat vertices[] = {
-            // positions         // colors
-            0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom right
-            -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  // bottom left
-            0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top
 
+    GLfloat vertices[] = {
+            // positions          // colors           // texture coords
+            0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+            0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+            -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left
+    };
+
+    GLuint indices[] {
+        0, 1, 3,
+        1, 2, 3
     };
 
     // A vertex array object stores vertex attribute calls
@@ -69,9 +77,11 @@ int main()
 
     // vertex buffer object, stores many vertices at once, sends large batches to reduce sending data
     GLuint vbo;
+    GLuint ebo;
 
     // generates an id for the buffer, first argument is amount of ids generated
     glGenBuffers(1, &vbo);
+    glGenBuffers(1, &ebo);
 
     // bind vao before vbo to store vertex attrib
     glBindVertexArray(vao);
@@ -84,6 +94,8 @@ int main()
     // copies vertex data into buffer memory
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     // first arg: type of bound buffer
     // second arg: size of data in bytes
     // third arg: data
@@ -93,8 +105,6 @@ int main()
     //  GL_DYNAMIC_DRAW: set many times and used many times
 
     // tells opengl how to interpret vertex data
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
-
     // first param: which vertex attribute (layout in vertex shader)
     // second param: size/amount of values of vertex attribute
     // third param: type of data
@@ -104,12 +114,20 @@ int main()
     //          requires explicit value when dealing with multiple vertex attributes
     // sixth: offset of data in buffer (this is beginning of buffer, so zero is fine)
 
+    // vertex positions
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)0);
     // allows vertex attribute to be used
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+    // vertex colors
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 
     glEnableVertexAttribArray(1);
+
+    // texCoord
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
+
+    glEnableVertexAttribArray(2);
     // unbind vbo since it is stored in vao
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -135,6 +153,14 @@ int main()
     // also swaps buffers (we use double buffer, means that we draw to back buffer, and it swaps at
     // beginning of frame, prevents visible lag
 
+    // generate an object to hold texture
+
+    // flips all loaded images on the y-axis when loading
+    stbi_set_flip_vertically_on_load(true);
+
+    Texture texture1 {"../textures/container.jpg"};
+    Texture texture2 {"../textures/awesomeface.png"};
+
     while(!glfwWindowShouldClose(window))
     {
         // input
@@ -147,16 +173,22 @@ int main()
 
         // rendering here
 
-        // uses
+        // sets active texture unit
+        // allows to set multiple texture uniforms
+        // to use, just set active texture unit and bind texture
+        // activates shader program
         basicShader.use();
 
+        // tells frag shader which texture sampler goes with which texture unit
+        basicShader.setTexture("texture1", texture1);
+        basicShader.setTexture("texture2", texture2);
+        // bind texture (maps to ourTexture uniform in frag shader)
         // Reuse VAO to prevent rebinding data to VBO
         glBindVertexArray(vao);
 
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         // draw triangle
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         // check/call events and swap buffers
         glfwSwapBuffers(window);
@@ -166,6 +198,7 @@ int main()
     // deallocate resources
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &ebo);
 
     // cleans up and terminates glfw
     glfwDestroyWindow(window);

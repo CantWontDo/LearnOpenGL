@@ -110,3 +110,12 @@ void Shader::setInt(const std::string &name, int value) const
 {
     glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
+
+void Shader::setTexture(const std::string &name, const Texture& value)
+{
+    glActiveTexture(GL_TEXTURE0 + boundTextures);
+    glBindTexture(GL_TEXTURE_2D, value.ID);
+
+    setInt(name, boundTextures);
+    boundTextures++;
+}
