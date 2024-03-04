@@ -5,6 +5,10 @@
 #include "stb/stb_image.h"
 #include "helpers/Texture2D.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 // called when application window is resized
 void framebufferSizeCallback(GLFWwindow* window, GLint width, GLint height);
 
@@ -162,6 +166,14 @@ int main()
     Texture2D texture2 {"../textures/spikes.png"};
     Texture2D texture3 {"../textures/awesomeface.png"};
 
+    glm::vec4 vec {1.0, 0.0, 0.0, 1.0};
+
+    glm::mat4 translation {1.0f};
+
+    translation = glm::translate(translation, glm::vec3(1.0, 1.0, 0.0));
+    vec = translation * vec;
+
+    std::cout << vec.x << " " << vec.y << " " << vec.z;
     while(!glfwWindowShouldClose(window))
     {
         // input
