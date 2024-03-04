@@ -163,17 +163,7 @@ int main()
     stbi_set_flip_vertically_on_load(true);
 
     Texture2D texture1 {"../textures/container.jpg"};
-    Texture2D texture2 {"../textures/spikes.png"};
-    Texture2D texture3 {"../textures/awesomeface.png"};
 
-    glm::vec4 vec {1.0, 0.0, 0.0, 1.0};
-
-    glm::mat4 translation {1.0f};
-
-    translation = glm::translate(translation, glm::vec3(1.0, 1.0, 0.0));
-    vec = translation * vec;
-
-    std::cout << vec.x << " " << vec.y << " " << vec.z;
     while(!glfwWindowShouldClose(window))
     {
         // input
@@ -183,6 +173,9 @@ int main()
 
         glClearColor(0.2, 0.3, 0.3, 1.0);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        glm::mat4 translation {1.0f};
+        translation = glm::scale(translation, glm::vec3(2));
 
         // rendering here
 
@@ -194,8 +187,9 @@ int main()
 
         // tells frag shader which texture sampler goes with which texture unit
         basicShader.setTexture2D("texture1", 0, texture1);
-        basicShader.setTexture2D("texture2", 1, texture2);
-        basicShader.setTexture2D("texture3", 2, texture3);
+        basicShader.setVec2("offset", glm::vec2(0));
+
+        basicShader.setMat4("transform", translation);
         // bind texture (maps to ourTexture uniform in frag shader)
         // Reuse VAO to prevent rebinding data to VBO
         glBindVertexArray(vao);

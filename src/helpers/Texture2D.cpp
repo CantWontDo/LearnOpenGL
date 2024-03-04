@@ -17,8 +17,8 @@ Texture2D::Texture2D(const char *texturePath, bool generateMipMaps)
 
     // filtering options: tell how to interpret texels (pixel on texture)
     // linear filtering averages neighboring texels (smooths out texture)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     unsigned char* data = stbi_load(texturePath, &width, &height, &numChannels, 0);
 

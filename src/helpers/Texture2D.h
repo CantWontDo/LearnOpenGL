@@ -17,7 +17,7 @@ public:
     int height;
     int numChannels;
 
-    Texture2D(const char* texturePath, bool generateMipMaps = true);
+    explicit Texture2D(const char* texturePath, bool generateMipMaps = true);
 
     Texture2D();
 
