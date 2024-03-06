@@ -3,7 +3,6 @@
 //
 
 #include "Shader.h"
-#include "Texture2D.h"
 
 Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
@@ -275,7 +274,7 @@ void Shader::setMat4(const std::string &name, const glm::mat4 &mat) const
 {
     if (locations.contains(name))
     {
-        glUniformMatrix4fv(locations.at(name), 1, GL_FALSE, &mat[0][0]);
+        glUniformMatrix4fv(locations.at(name), 1, GL_FALSE, glm::value_ptr(mat));
     } else
     {
         std::cout << name << " does not exist!\n";

@@ -5,10 +5,9 @@ in vec3 ourColor;
 in vec2 TexCoord;
 
 uniform sampler2D texture1;
-uniform vec2 offset;
 
 void main()
 {
-    FragColor = texture(texture1, TexCoord + offset);
+    FragColor = texture(texture1, TexCoord);
 }
 

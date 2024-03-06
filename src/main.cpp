@@ -59,11 +59,47 @@ int main()
     // these are unique vertices
 
     GLfloat vertices[] = {
-            // positions          // colors           // texture coords
-            0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-            0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-            -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-            -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left
+            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+            0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
 
     GLuint indices[] {
@@ -119,17 +155,17 @@ int main()
     // sixth: offset of data in buffer (this is beginning of buffer, so zero is fine)
 
     // vertex positions
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
     // allows vertex attribute to be used
     glEnableVertexAttribArray(0);
 
     // vertex colors
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 
-    glEnableVertexAttribArray(1);
+   // glEnableVertexAttribArray(1);
 
     // texCoord
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 
     glEnableVertexAttribArray(2);
     // unbind vbo since it is stored in vao
@@ -163,40 +199,61 @@ int main()
     stbi_set_flip_vertically_on_load(true);
 
     Texture2D texture1 {"../textures/container.jpg"};
+    glm::vec3 cubePositions[] = {
+            glm::vec3( 0.0f,  0.0f,  0.0f),
+            glm::vec3( 2.0f,  5.0f, -15.0f),
+            glm::vec3(-1.5f, -2.2f, -2.5f),
+            glm::vec3(-3.8f, -2.0f, -12.3f),
+            glm::vec3( 2.4f, -0.4f, -3.5f),
+            glm::vec3(-1.7f,  3.0f, -7.5f),
+            glm::vec3( 1.3f, -2.0f, -2.5f),
+            glm::vec3( 1.5f,  2.0f, -2.5f),
+            glm::vec3( 1.5f,  0.2f, -1.5f),
+            glm::vec3(-1.3f,  1.0f, -1.5f)
+    };
+
+    float aspect = 640.f / 480;
 
     while(!glfwWindowShouldClose(window))
     {
         // input
         processInput(window);
 
-        // clears color buffer (changing color of screen)
+        glEnable(GL_DEPTH_TEST);
 
         glClearColor(0.2, 0.3, 0.3, 1.0);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        glm::mat4 translation {1.0f};
-        translation = glm::scale(translation, glm::vec3(2));
-
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // rendering here
+
+        glm::mat4 view = glm::identity<glm::mat4>();
+        view = glm::translate(view, glm::vec3(0, -1, -3));
+
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), 640 / 480.0f, 0.1f, 100.0f);
+
 
         // sets active texture unit
         // allows to set multiple texture uniforms
         // to use, just set active texture unit and bind texture
         // activates shader program
-        basicShader.use();
 
-        // tells frag shader which texture sampler goes with which texture unit
-        basicShader.setTexture2D("texture1", 0, texture1);
-        basicShader.setVec2("offset", glm::vec2(0));
-
-        basicShader.setMat4("transform", translation);
         // bind texture (maps to ourTexture uniform in frag shader)
         // Reuse VAO to prevent rebinding data to VBO
         glBindVertexArray(vao);
         //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         // draw triangle
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        //glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
+        basicShader.use();
+            glm::mat4 model = glm::identity<glm::mat4>();
+            model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0, 1, 0));
+
+
+            // tells frag shader which texture sampler goes with which texture unit
+            basicShader.setTexture2D("texture1", 0, texture1);
+            basicShader.setMat4("model", model);
+            basicShader.setMat4("projection", projection);
+            basicShader.setMat4("view", view);
+            glDrawArrays(GL_TRIANGLES, 0, 36);
         // check/call events and swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();

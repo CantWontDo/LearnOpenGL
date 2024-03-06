@@ -7,6 +7,7 @@
 
 #include <glad/glad.h>
 #include "Texture2D.h"
+#include <glm/gtc/type_ptr.hpp>
 #include <glm/glm.hpp>
 
 #include <string>
