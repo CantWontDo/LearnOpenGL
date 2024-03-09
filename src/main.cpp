@@ -4,6 +4,7 @@
 #include "helpers/Shader.h"
 #include "stb/stb_image.h"
 #include "helpers/Texture2D.h"
+#include "helpers/Camera.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -18,11 +19,6 @@ void mouseCallback(GLFWwindow* window, double xPos, double yPos);
 
 void scrollCallback(GLFWwindow* window, double xOffset, double yOffset);
 
-
-glm::vec3 cameraPos = glm::vec3(0, 0, 3);
-glm::vec3 cameraFront = glm::vec3(0, 0, -1);
-glm::vec3 cameraUp = glm::vec3(0, 1, 0);
-
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
@@ -32,11 +28,10 @@ const float SCR_HEIGHT = 720;
 float lastX = SCR_WIDTH / 2;
 float lastY = SCR_HEIGHT / 2;
 
-float yaw = -90;
-float pitch = 0;
-float fov = 45;
 
 bool firstMouse = true;
+float fov = 45;
+Camera camera { Camera()};
 
 int main()
 {
@@ -241,7 +236,6 @@ int main()
             glm::vec3(-1.3f,  1.0f, -1.5f)
     };
 
-    float aspect = 640.f / 480;
 
     while(!glfwWindowShouldClose(window))
     {
@@ -256,13 +250,6 @@ int main()
         glClearColor(0.2, 0.3, 0.3, 1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // rendering here
-
-        glm::vec3 direction;
-        direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-        direction.y = sin(glm::radians(pitch));
-        direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-        cameraFront = glm::normalize(direction);
-        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 
 
         glm::mat4 projection = glm::perspective(glm::radians(fov), 640 / 480.0f, 0.1f, 100.0f);
@@ -281,6 +268,8 @@ int main()
         // draw triangle
         //glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
+        glm::mat4 view = camera.getView();
+
         basicShader.use();
         for(int i = 0; i < 10; i++)
         {
@@ -295,6 +284,7 @@ int main()
             basicShader.setMat4("model", model);
             basicShader.setMat4("projection", projection);
             basicShader.setMat4("view", view);
+
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
         // check/call events and swap buffers
@@ -324,22 +314,32 @@ void processInput(GLFWwindow* window)
 
     if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
-        cameraPos += cameraFront * cameraSpeed;
+        camera.changeCameraPos(glm::normalize(glm::vec3(camera.getCameraDir().x, 0, camera.getCameraDir().z)) * cameraSpeed);
     }
 
     if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
-        cameraPos -= cameraFront * cameraSpeed;
+        camera.changeCameraPos(-glm::normalize(glm::vec3(camera.getCameraDir().x, 0, camera.getCameraDir().z)) * cameraSpeed);
     }
 
     if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        camera.changeCameraPos(camera.getCameraRight() * cameraSpeed);
     }
 
     if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        camera.changeCameraPos(-camera.getCameraRight() * cameraSpeed);
+    }
+
+    if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+    {
+        camera.changeCameraPos(-camera.worldUp * cameraSpeed);
+    }
+
+    if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+    {
+        camera.changeCameraPos(camera.worldUp * cameraSpeed);
     }
 
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -358,26 +358,16 @@ void mouseCallback(GLFWwindow* window, double xPos, double yPos)
     }
     float xOffset = xPos - lastX;
     float yOffset = yPos - lastY;
-    yOffset *= -1;
 
     lastX = xPos;
     lastY = yPos;
 
     const float sensitivity = 0.2f;
     yOffset *= sensitivity;
-    xOffset *= sensitivity;
+    xOffset *= -sensitivity;
 
-    yaw += xOffset;
-    pitch += yOffset;
-
-    if(pitch > 89.0f)
-    {
-        pitch = 89.0f;
-    }
-    if(pitch < -89.0f)
-    {
-        pitch = -89.0f;
-    }
+    camera.changeYaw(xOffset);
+    camera.changePitch(yOffset);
 }
 
 void scrollCallback(GLFWwindow* window, double xOffset, double yOffset)
