@@ -75,60 +75,58 @@ int main()
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     // shaders are also represented with objects/ids
-    Shader basicShader {"../shaders/basic_vertex_shader.vert"
-                            , "../shaders/basic_fragment_shader.frag"};
+    Shader basicShader {"../shaders/basic_lighting_shader.vert"
+                            , "../shaders/basic_lighting_shader.frag"};
+
+    Shader basicLightShader {"../shaders/basic_light_shader.vert"
+            , "../shaders/basic_light_shader.frag"};
 
     // *** Initialization of VAO starts here ***
     // vertices of triangle, each vertex has 3 values (x, y, z). z is zero here to make it look 2d
     // these are unique vertices
 
     GLfloat vertices[] = {
-            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-            0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
 
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-            0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-            -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
 
-            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
 
-            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+            0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+            0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+            0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+            0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+            0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
 
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-            0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-            0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+            0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+            0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+            -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
 
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-            0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-            -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-            -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-    };
-
-    GLuint indices[] {
-        0, 1, 3,
-        1, 2, 3
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+            0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+            0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+            -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
     };
 
     // A vertex array object stores vertex attribute calls
@@ -141,11 +139,9 @@ int main()
 
     // vertex buffer object, stores many vertices at once, sends large batches to reduce sending data
     GLuint vbo;
-    GLuint ebo;
 
     // generates an id for the buffer, first argument is amount of ids generated
     glGenBuffers(1, &vbo);
-    glGenBuffers(1, &ebo);
 
     // bind vao before vbo to store vertex attrib
     glBindVertexArray(vao);
@@ -158,8 +154,6 @@ int main()
     // copies vertex data into buffer memory
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     // first arg: type of bound buffer
     // second arg: size of data in bytes
     // third arg: data
@@ -178,20 +172,13 @@ int main()
     //          requires explicit value when dealing with multiple vertex attributes
     // sixth: offset of data in buffer (this is beginning of buffer, so zero is fine)
 
-    // vertex positions
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
-    // allows vertex attribute to be used
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+    // normal attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
 
-    // vertex colors
-    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-
-   // glEnableVertexAttribArray(1);
-
-    // texCoord
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-
-    glEnableVertexAttribArray(2);
     // unbind vbo since it is stored in vao
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -199,6 +186,17 @@ int main()
 
     // unbind VAO so other can be created
     glBindVertexArray(0);
+
+    GLuint lightVao;
+
+    glGenVertexArrays(1, &lightVao);
+    glBindVertexArray(lightVao);
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+    // vertex positions
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
+    glEnableVertexAttribArray(0);
 
 
     // draws primitive (triangle in this case) using currently used shader program and bound vbo / vao
@@ -226,16 +224,19 @@ int main()
     glm::vec3 cubePositions[] = {
             glm::vec3( 0.0f,  0.0f,  0.0f),
             glm::vec3( 2.0f,  5.0f, -15.0f),
-            glm::vec3(-1.5f, -2.2f, -2.5f),
-            glm::vec3(-3.8f, -2.0f, -12.3f),
-            glm::vec3( 2.4f, -0.4f, -3.5f),
-            glm::vec3(-1.7f,  3.0f, -7.5f),
-            glm::vec3( 1.3f, -2.0f, -2.5f),
-            glm::vec3( 1.5f,  2.0f, -2.5f),
-            glm::vec3( 1.5f,  0.2f, -1.5f),
-            glm::vec3(-1.3f,  1.0f, -1.5f)
+            glm::vec3( 10.0f,  0.0f,  0.0f),
+            glm::vec3( 2.0f,  15.0f, -15.0f),
+            glm::vec3( 0.0f,  0.0f,  10.0f),
+            glm::vec3( 12.0f,  5.0f, -15.0f),
+            glm::vec3( 0.0f,  10.0f,  0.0f),
+            glm::vec3( 2.0f,  5.0f, -5.0f),
+            glm::vec3( 3.0f,  10.0f,  0.0f),
+            glm::vec3( 2.0f,  5.0f, -15.0f)
     };
 
+    glm::vec3 lightCol = glm::vec3(1.0, .5, .75);
+
+    glm::vec3 lightPos = glm::vec3(0, -3, 0);
 
     while(!glfwWindowShouldClose(window))
     {
@@ -271,22 +272,46 @@ int main()
         glm::mat4 view = camera.getView();
 
         basicShader.use();
+
+        glm::mat4 model = glm::identity<glm::mat4>();
+
         for(int i = 0; i < 10; i++)
         {
-            glm::mat4 model = glm::identity<glm::mat4>();
+            model = glm::identity<glm::mat4>();
 
             model = glm::rotate(model, glm::radians((float)20 * i), glm::vec3(0, 1, 0));
 
             model = glm::translate(model, cubePositions[i]);
 
-            // tells frag shader which texture sampler goes with which texture unit
-            basicShader.setTexture2D("texture1", 0, texture1);
+            glm::mat3 normalMat = glm::transpose(glm::inverse(model));
+
             basicShader.setMat4("model", model);
             basicShader.setMat4("projection", projection);
             basicShader.setMat4("view", view);
+            basicShader.setMat3("normalMat", normalMat);
+            basicShader.setVec3("objectColor", .7f, .8f, .45f);
+            basicShader.setVec3("lightPos",  lightPos);
+            basicShader.setVec3("lightColor", lightCol);
+            basicShader.setVec3("viewPos", camera.getCameraPos());
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
+
+        glBindVertexArray(lightVao);
+        basicLightShader.use();
+
+        model = glm::identity<glm::mat4>();
+
+        model = glm::translate(model, lightPos);
+
+        basicLightShader.setMat4("model", model);
+        basicLightShader.setMat4("projection", projection);
+        basicLightShader.setMat4("view", view);
+
+        basicLightShader.setVec3("lightColor", lightCol);
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
         // check/call events and swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -294,8 +319,8 @@ int main()
 
     // deallocate resources
     glDeleteVertexArrays(1, &vao);
+    glDeleteVertexArrays(1, &lightVao);
     glDeleteBuffers(1, &vbo);
-    glDeleteBuffers(1, &ebo);
 
     // cleans up and terminates glfw
     glfwDestroyWindow(window);

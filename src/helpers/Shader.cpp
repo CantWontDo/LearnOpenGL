@@ -110,6 +110,8 @@ Shader::Shader(const char* vertexShaderPath, const char* fragmentShaderPath)
 
         locations[name] = location;
     }
+
+    std::cout << locationCount << '\n';
 }
 
 void Shader::use() const
