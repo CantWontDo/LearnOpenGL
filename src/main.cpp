@@ -289,10 +289,15 @@ int main()
             basicShader.setMat4("projection", projection);
             basicShader.setMat4("view", view);
             basicShader.setMat3("normalMat", normalMat);
-            basicShader.setVec3("objectColor", .7f, .8f, .45f);
+
             basicShader.setVec3("lightPos",  lightPos);
             basicShader.setVec3("lightColor", lightCol);
             basicShader.setVec3("viewPos", camera.getCameraPos());
+
+            basicShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+            basicShader.setVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
+            basicShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f);
+            basicShader.setFloat("material.shininess", 32.0f);
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
