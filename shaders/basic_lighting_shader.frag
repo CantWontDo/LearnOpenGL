@@ -3,7 +3,7 @@ out vec4 FragColor;
 
 struct Material
 {
-    vec3 specular;
+    sampler2D specular;
     sampler2D diffuse;
     float shininess;
 };
@@ -29,6 +29,8 @@ uniform Light light;
 void main()
 {
     vec3 diffuseAmbient = vec3(texture(material.diffuse, TexCoords));
+    vec3 specularMap = vec3(texture(material.specular, TexCoords));
+
     // normal of current fragment in world space
     vec3 normal = normalize(Normal);
 
@@ -50,7 +52,7 @@ void main()
 
     // intensity of specular reflection (how small is angle between reflected vector and viewer?)
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-    vec3 specular = (material.specular * spec) * light.specular;
+    vec3 specular = (specularMap * spec) * light.specular;
 
     FragColor = vec4((diffuse + ambient + specular), 1.0);
 }

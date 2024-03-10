@@ -224,7 +224,9 @@ int main()
     // flips all loaded images on the y-axis when loading
     stbi_set_flip_vertically_on_load(true);
 
-    Texture2D texture1 {"../textures/container.jpg"};
+    Texture2D container {"../textures/container2.png"};
+    Texture2D containerSpecular {"../textures/container2_specular.png"};
+
     glm::vec3 cubePositions[] = {
             glm::vec3( 0.0f,  0.0f,  0.0f),
             glm::vec3( 2.0f,  5.0f, -15.0f),
@@ -297,13 +299,13 @@ int main()
 
             basicShader.setVec3("viewPos", camera.getCameraPos());
 
-            basicShader.setTexture2D("material.diffuse", 0, texture1);
-            basicShader.setVec3("material.specular", glm::vec3(0.5f));
+            basicShader.setTexture2D("material.diffuse", 0, container);
+            basicShader.setTexture2D("material.specular", 1, containerSpecular);
             basicShader.setFloat("material.shininess", 64.0);
 
-            basicShader.setVec3("light.ambient", glm::vec3(0.2f));
-            basicShader.setVec3("light.diffuse", glm::vec3(0.5f));
-            basicShader.setVec3("light.specular", glm::vec3(1.0f));
+            basicShader.setVec3("light.ambient", glm::vec3(0.3f));
+            basicShader.setVec3("light.diffuse", glm::vec3(0.75f));
+            basicShader.setVec3("light.specular", glm::vec3(1));
             basicShader.setVec3("light.position",  lightPos);
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
